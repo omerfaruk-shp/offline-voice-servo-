@@ -46,3 +46,21 @@ Install Python dependencies with:
 ```bash
 pip install vosk sounddevice pyserial
 ```
+
+Download the Turkish voice model from:
+📦 https://alphacephei.com/vosk/models
+Recommended: vosk-model-small-tr-0.3
+
+🔊 Supported Commands
+Voice Command	Action
+sağ	Servo rotates to 180° (right)
+sol	Servo rotates to 0° (left)
+
+⚙️ How It Works
+Python listens to the microphone using the VOSK API.
+
+Recognized text is parsed for keywords (sağ, sol).
+
+Matching command is sent to NodeMCU via USB serial.
+
+
