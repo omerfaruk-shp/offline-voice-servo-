@@ -67,17 +67,17 @@ project-folder/
 
 ## 🔊 Supported Voice Commands
 
-| Command | Action                |
+| Command | Action                 |
 |---------|------------------------|
-| `sağ`   | Rotate servo to 180°   |
-| `sol`   | Rotate servo to 0°     |
+| `motor sağa dön`   | Rotate servo to 180°   |
+| `motor sola dön`   | Rotate servo to 0°     |
 
 ---
 
 ## 🧠 How It Works
 
 1. `voice_control.py` listens to microphone input using VOSK.
-2. If `"sağ"` or `"sol"` is recognized, it sends `"sag"` or `"sol"` to NodeMCU over serial.
+2. If `"sağ"` or `"sol"` is recognized, it sends `"motor sağa dön"` or `"motor sola dön"` to NodeMCU over serial.
 3. NodeMCU receives the command and moves the servo accordingly.
 
 ---
