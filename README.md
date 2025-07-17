@@ -71,12 +71,7 @@ Download the Turkish voice model from:
 Recommended: vosk-model-small-tr-0.3
 
 <br>
-
-project-folder/
-├── voice_control.py # Python voice recognition script
-├── vosk-model-small-tr-0.3/ # Extracted VOSK Turkish model directory
-│ ├── am/
-│ ├── conf/
-│ ├── model.conf
-│ └── ...
-└── nodemcu-servo.ino # Arduino sketch for NodeMCU
+🔊 Supported Voice Commands
+Command	Action
+sağ	Rotate servo to 180°
+sol	Rotate servo to 0°
