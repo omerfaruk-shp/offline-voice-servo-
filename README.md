@@ -62,11 +62,11 @@ Python listens to the microphone using the VOSK API.
 Recognized text is parsed for keywords (sağ, sol).
 
 Matching command is sent to NodeMCU via USB serial.
-
+<br>
 Download the Turkish voice model from:
 📦 https://alphacephei.com/vosk/models
 Recommended: vosk-model-small-tr-0.3
-
+<br>
 project-folder/
 ├── voice_control.py               # Python voice recognition script
 ├── vosk-model-small-tr-0.3/       # Extracted VOSK model directory
