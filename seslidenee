@@ -1,0 +1,35 @@
+import sounddevice as sd
+import queue
+import json
+from vosk import Model, KaldiRecognizer
+import serial
+import time
+
+# Seri bağlantı ayarı
+seri = serial.Serial('COM4', 9600)
+time.sleep(2)
+
+# Ses akışı ayarı
+q = queue.Queue()
+
+def callback(indata, frames, time, status):
+    q.put(bytes(indata))
+
+model = Model("C:\\Users\\Omer Faruk\\Documents\\vosk-model-small-tr-0.3")
+recognizer = KaldiRecognizer(model, 16000)
+
+with sd.RawInputStream(samplerate=16000, blocksize=8000, dtype='int16',
+                       channels=1, callback=callback):
+    print("🎤 Komut bekleniyor...")
+
+    while True:
+        data = q.get()
+        if recognizer.AcceptWaveform(data):
+            result = recognizer.Result()
+            metin = json.loads(result)["text"]
+            print("🔊 Duyulan:", metin)
+
+            if "motor sağa dön" in metin:
+                seri.write(b"sag\n")
+            elif "motor sola dön" in metin:
+                seri.write(b"sol\n")
